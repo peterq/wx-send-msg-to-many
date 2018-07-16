@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  common:
+    external: true
+
+services:
+  wx_send_many_endpoint:
+    build:
+      context: ./con
+    volumes:
+      - ../:/app/code
+      - ../../swoole-ws-rpc:/app/code/vendor/peterq/swoole-ws-rpc
+    expose:
+      - "8080"
+    networks:
+      - default
+      - common
+    working_dir: /app/code
+    command: /bin/sh ./run.sh
