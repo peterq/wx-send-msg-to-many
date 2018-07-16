@@ -44,6 +44,13 @@ class Manager {
         return true;
     }
 
+    public function destroyClient($args) {
+        $sessionId = $args['sessionId'];
+        if (!isset($this->clientMap[$sessionId])) return false;
+        $proxy = $this->clientMap[$sessionId];
+        $proxy->callRemoteAsync('exit');
+    }
+
     public function __call($name, $arguments)
     {
         if (!method_exists(Client::class, $name))

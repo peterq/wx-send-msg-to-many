@@ -135,7 +135,6 @@ class Client {
 
     public function exit()
     {
-        $this->notify('client.exit');
         $this->managerProxy->callRemote('onWillExit');
         println('wx client exit');
         exit(0);

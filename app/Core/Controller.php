@@ -67,6 +67,12 @@ class Controller extends \WsRpc\Controller {
         return $this->managerProxy->callRemote('newClient', ['sessionId' => $sessionManager->get('sessionId'), 'id' => $sessionManager->get('username')]);
     }
 
+    public function actionDestroyClient(SessionManager $sessionManager, $param)
+    {
+        $this->managerProxy->callRemoteAsync('destroyClient', ['sessionId' => $sessionManager->get('sessionId')]);
+        return true;
+    }
+
     // 登录
     public function actionLogin(SessionManager $sessionManager, $param)
     {
