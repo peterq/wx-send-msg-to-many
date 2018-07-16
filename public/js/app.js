@@ -29,7 +29,7 @@ const event = (function () {
   return {fire: e, on: t}
 })()
 window.$event = event
-const rpc = new Rpc((location.protocol == 'https:' ? 'wss' : 'ws') + '://' + location.host)
+const rpc = new Rpc((location.protocol == 'https:' ? 'wss' : 'ws') + '://' + location.host + '/ws')
 const state = new Vue(State)
 scheduler(event, rpc, state)
 window.app = new Vue({
