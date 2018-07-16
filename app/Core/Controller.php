@@ -78,8 +78,8 @@ class Controller extends \WsRpc\Controller {
     {
         $password = trim($param['password']);
         $username = trim($param['username']);
-        $username = 'peterq';
-        $password = 'leo520';
+        // $username = 'peterq';
+        // $password = 'leo520';
         if ((config('accounts')[$username]?? ' ') != $password)
             throw new ResponseableException('账号或密码错误');
         $sessionManager->set('username', $username);
